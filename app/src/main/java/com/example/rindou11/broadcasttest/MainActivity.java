@@ -10,6 +10,8 @@ import android.net.NetworkRequest;
 import android.os.TokenWatcher;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,10 +19,21 @@ public class MainActivity extends AppCompatActivity {
     private IntentFilter intentFilter;
     private NetworkChangeReceiver networkChangeReceiver;
 
+    private Button button_send_broad;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        button_send_broad=(Button)findViewById(R.id.send_broadcast);
+        button_send_broad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent inten_broadcast=new Intent("com.example.rindou11.broadcasttest.MY_BROADCAST");
+                sendBroadcast(inten_broadcast);
+            }
+        });
 
         //系统在网络发生变化时,会发送一条值为"android.net.conn.CONNECTIVITY_CHAGE"的广播
         intentFilter=new IntentFilter();

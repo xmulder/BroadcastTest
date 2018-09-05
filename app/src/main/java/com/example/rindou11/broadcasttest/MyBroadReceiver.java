@@ -5,12 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-public class BootCompleteReceiver extends BroadcastReceiver {
+public class MyBroadReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        Toast.makeText(context,"Boot Completed.",Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,"Received in MyBroadReceiver.",Toast.LENGTH_SHORT).show();
 
     }
 }
